@@ -25,16 +25,13 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
-//Step 1
   final TextEditingController _filter = new TextEditingController();
-  final dio = new Dio(); // for http requests
+  final dio = new Dio();
   String _searchText = "";
-  List names = []; // names we get from API
-  List filteredNames = []; // names filtered by search text
+  List names = [];
+  List filteredNames = [];
   Icon _searchIcon = new Icon(Icons.search);
   Widget _appBarTitle = new Text('Search here');
-
-  //step 2.1
 
   void _getNames() async {
     final response = await dio
@@ -50,7 +47,6 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
-//Step 2.2
   void _searchPressed() {
     setState(() {
       if (this._searchIcon.icon == Icons.search) {
@@ -69,7 +65,6 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
-  //Step 4
   Widget _buildList() {
     if (!(_searchText.isEmpty)) {
       List tempList = [];
@@ -105,7 +100,6 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  //STep6
   Widget _buildBar(BuildContext context) {
     return AppBar(
       centerTitle: true,
